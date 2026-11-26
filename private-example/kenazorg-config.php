@@ -9,6 +9,7 @@ return [
     ],
     'from_email' => 'noreply@kenazorg.nl',
     'from_name'  => 'Kena Zorg website',
+    'allowed_hosts' => ['kenazorg.nl', 'www.kenazorg.nl', 'new.kenazorg.nl'],
     'smtp' => [
         'host'   => '',      // bv. de mailserver van de hosting of smtp.office365.com
         'port'   => 587,
