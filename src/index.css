@@ -1,0 +1,122 @@
+/*
+  Kena Zorg – design system
+  Kleuren uit het verloop van het logo (clay → sand → espresso), typografie:
+  Cormorant Garamond (koppen, sluit aan bij het klassieke KENA-woordmerk) + Figtree (lezen).
+*/
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-latin-wght-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("/fonts/figtree-latin-wght-normal.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+  h1, h2, h3 {
+    font-family: theme("fontFamily.display");
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  ::selection {
+    background: theme("colors.sand");
+    color: theme("colors.espresso");
+  }
+  :focus-visible {
+    outline: 3px solid theme("colors.clay.700");
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply mb-4 flex items-center gap-3 font-display text-xl italic text-clay-700;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-8 bg-clay;
+  }
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 py-3 text-[16px] font-semibold transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-clay-700 text-white hover:bg-clay-800;
+  }
+  .btn-dark {
+    @apply btn bg-espresso text-cream hover:bg-bark;
+  }
+  .btn-ghost {
+    @apply btn border border-espresso/25 text-espresso hover:border-espresso hover:bg-white/60;
+  }
+  .link {
+    @apply font-semibold text-clay-700 underline decoration-clay/40 underline-offset-4 hover:decoration-clay-700;
+  }
+  .prose-kena p + p {
+    @apply mt-4;
+  }
+  .field {
+    @apply block w-full rounded-2xl border border-espresso/20 bg-white px-4 py-3 text-[16px] text-espresso placeholder:text-taupe/70 transition-colors focus:border-clay-700 focus:outline-none focus:ring-2 focus:ring-clay/30;
+  }
+  .label {
+    @apply mb-1.5 block text-[15px] font-semibold text-espresso;
+  }
+}
+
+@layer utilities {
+  .shape-arch {
+    border-radius: 2rem 9rem 2rem 2rem;
+  }
+  .shape-arch-l {
+    border-radius: 9rem 2rem 2rem 2rem;
+  }
+  @media (max-width: 640px) {
+    .shape-arch { border-radius: 1.5rem 5rem 1.5rem 1.5rem; }
+    .shape-arch-l { border-radius: 5rem 1.5rem 1.5rem 1.5rem; }
+  }
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
