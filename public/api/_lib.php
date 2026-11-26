@@ -11,7 +11,7 @@ function load_config(): array
         'recipients'     => [],                           // optioneel per formulier, bv. ['aanmelding' => 'aanmelding@kenazorg.nl']
         'from_email'     => 'noreply@kenazorg.nl',        // adres op het eigen domein (SPF/DKIM)
         'from_name'      => 'Kena Zorg website',
-        'allowed_hosts'  => ['kenazorg.nl', 'www.kenazorg.nl'],
+        'allowed_hosts'  => ['kenazorg.nl', 'www.kenazorg.nl', 'new.kenazorg.nl'], // new. = testomgeving
         'smtp'           => null,                         // ['host'=>'', 'port'=>587, 'secure'=>'tls'|'ssl', 'user'=>'', 'pass'=>'']
     ];
     $file = dirname(__DIR__, 2) . '/private/kenazorg-config.php';
