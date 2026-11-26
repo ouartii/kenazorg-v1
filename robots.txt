@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /bedankt/
+
+Sitemap: https://kenazorg.nl/sitemap.xml
