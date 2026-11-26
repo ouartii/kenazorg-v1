@@ -1,0 +1,7 @@
+node_modules
+dist
+dist-ssr
+dist-preview
+private/
+*.log
+.DS_Store
